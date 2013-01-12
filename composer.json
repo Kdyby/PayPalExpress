@@ -15,6 +15,9 @@
         "nette/nette": "*",
         "kdyby/curl": "*"
     },
+	"require-dev": {
+		"nette/tester": "@dev"
+	},
     "support":{
         "email":"filip@prochazka.su",
         "issues":"https://github.com/kdyby/paypal-express/issues"
