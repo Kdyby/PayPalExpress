@@ -252,6 +252,11 @@ class PayPal extends Nette\Object
 
 		$request = new Curl\Request($this->host, $data);
 		$request->setSender($this->curlSender);
+
+		if (file_exists($crtFile = __DIR__ . '/Auth/' . $request->getUrl()->getHost() . '.crt')) {
+			$request->setTrustedCertificate($crtFile);
+		}
+
 		try {
 			$response = $request->post(http_build_query($data));
 			$resultData = self::parseNvp($response->getResponse());
