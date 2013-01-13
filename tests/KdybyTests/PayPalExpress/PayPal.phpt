@@ -10,6 +10,8 @@
 
 namespace KdybyTests\PayPalExpress;
 
+use Kdyby\Curl\CurlException;
+use Kdyby\Curl\FailedRequestException;
 use Kdyby\PayPalExpress\Cart;
 use Kdyby\PayPalExpress\DI\PayPalExtension;
 use Kdyby\PayPalExpress\PayPal;
@@ -72,6 +74,37 @@ class PayPalTest extends Tester\TestCase
 
 		$cart = $details->getCart();
 		Assert::false($cart->isEmpty());
+	}
+
+
+
+	/**
+	 * @param $name
+	 * @param array $args
+	 * @throws \Exception
+	 */
+	public function runTest($name, array $args = array())
+	{
+		try {
+			parent::runTest($name, $args);
+
+		} catch (\Exception $e) {
+			$current = $e;
+
+			do {
+				if ($current instanceof FailedRequestException) {
+					echo "Curl debugging info:\n";
+					Tester\Dumper::toLine($current->getInfo());
+
+				} elseif ($current instanceof CurlException && ($response = $current->getResponse())) {
+					echo "Curl debugging info:\n";
+					Tester\Dumper::toLine(array('info' => $response->getInfo(), 'header' => $response->getHeaders()));
+				}
+
+			} while ($current = $current->getPrevious());
+
+			throw $e;
+		}
 	}
 
 }

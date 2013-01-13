@@ -253,8 +253,8 @@ class PayPal extends Nette\Object
 		$request = new Curl\Request($this->host, $data);
 		$request->setSender($this->curlSender);
 
-		if (file_exists($crtFile = __DIR__ . '/Auth/' . $request->getUrl()->getHost() . '.crt')) {
-			$request->setTrustedCertificate($crtFile);
+		if (strpos($request->getUrl()->getHost(), '.sandbox.') !== FALSE) {
+			$request->setCertificationVerify(FALSE);
 		}
 
 		try {
