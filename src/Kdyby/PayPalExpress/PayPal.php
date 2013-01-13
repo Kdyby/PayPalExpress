@@ -8,10 +8,10 @@
  * For the full copyright and license information, please view the file license.md that was distributed with this source code.
  */
 
-namespace Kdyby\Extension\Pay\PayPalExpress;
+namespace Kdyby\PayPalExpress;
 
 use Nette;
-use Kdyby\Extension\Curl;
+use Kdyby\Curl;
 
 
 
@@ -21,7 +21,7 @@ use Kdyby\Extension\Curl;
  * @see  http://www.php-suit.com/paypal
  *
  * @method onRequest(array $data)
- * @method onError(\Kdyby\Extension\Curl\CurlException $e, array $info)
+ * @method onError(\Kdyby\Curl\CurlException $e, array $info)
  * @method onSuccess(array $result)
  */
 class PayPal extends Nette\Object

@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the file license.txt that was distributed with this source code.
  */
 
-namespace Kdyby\Extension\Pay\PayPalExpress\DI;
+namespace Kdyby\PayPalExpress\DI;
 
 use Kdyby;
 use Nette;
@@ -45,7 +45,7 @@ class PayPalExtension extends Nette\Config\CompilerExtension
 		Validators::assertField($config, 'sandbox', 'bool');
 
 		$client = $builder->addDefinition($this->prefix('client'))
-			->setClass('Kdyby\Extension\Pay\PayPalExpress\PayPal')
+			->setClass('Kdyby\PayPalExpress\PayPal')
 			->setArguments(array($config))
 			->addSetup('setCurrency', array($config['currency']));
 
@@ -68,7 +68,7 @@ class PayPalExtension extends Nette\Config\CompilerExtension
 		$init->addBody($container->formatPhp(
 			'Nette\Diagnostics\Debugger::$blueScreen->addPanel(?);',
 			Nette\Config\Compiler::filterArguments(array(
-				'Kdyby\Extension\Pay\PayPalExpress\Diagnostics\Panel::renderException'
+				'Kdyby\PayPalExpress\Diagnostics\Panel::renderException'
 			))
 		));
 	}
