@@ -252,9 +252,12 @@ class PayPal extends Nette\Object
 
 		$request = new Curl\Request($this->host, $data);
 		$request->setSender($this->curlSender);
+		$request->options['sslversion'] = 3;
+		$request->options['verbose'] = true;
 
 		if (strpos($request->getUrl()->getHost(), '.sandbox.') !== FALSE) {
 			$request->setCertificationVerify(FALSE);
+			$request->options['ssl_verifyHost'] = FALSE;
 		}
 
 		try {

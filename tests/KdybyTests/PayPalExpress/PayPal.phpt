@@ -92,9 +92,9 @@ class PayPalTest extends Tester\TestCase
 			$current = $e;
 
 			do {
-				if ($current instanceof FailedRequestException) {
+				if ($current instanceof FailedRequestException && ($info = $current->getInfo())) {
 					echo "Curl debugging info:\n";
-					Tester\Dumper::toLine($current->getInfo());
+					Tester\Dumper::toLine($info);
 
 				} elseif ($current instanceof CurlException && ($response = $current->getResponse())) {
 					echo "Curl debugging info:\n";
