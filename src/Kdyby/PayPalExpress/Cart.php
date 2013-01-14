@@ -51,7 +51,7 @@ class Cart extends Nette\Object
 	/**
 	 * @var float
 	 */
-	public $tax = 20.0;
+	public $tax = 21.0;
 
 	/**
 	 * @var int
