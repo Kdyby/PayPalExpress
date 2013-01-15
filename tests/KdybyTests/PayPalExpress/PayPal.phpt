@@ -69,8 +69,8 @@ class PayPalTest extends Tester\TestCase
 		Assert::same('PaymentActionNotInitiated', $details->getData('CHECKOUTSTATUS'));
 		Assert::same('USD', $details->getData('CURRENCYCODE'));
 		Assert::same('10.00', $details->getData('ITEMAMT'));
-		Assert::same('12.00', $details->getData('AMT'));
-		Assert::same('2.00', $details->getData('TAXAMT'));
+		Assert::same('12.10', $details->getData('AMT'));
+		Assert::same('2.10', $details->getData('TAXAMT'));
 
 		$cart = $details->getCart();
 		Assert::false($cart->isEmpty());
