@@ -3,15 +3,14 @@
 /**
  * This file is part of the Kdyby (http://www.kdyby.org)
  *
- * Copyright (c) 2008, 2012 Filip Procházka (filip@prochazka.su)
+ * Copyright (c) 2008 Filip Procházka (filip@prochazka.su)
  *
  * For the full copyright and license information, please view the file license.md that was distributed with this source code.
  */
 
 namespace Kdyby\PayPalExpress;
-
-use Nette;
 use Kdyby\Curl;
+use Nette;
 
 
 
@@ -253,7 +252,7 @@ class PayPal extends Nette\Object
 		$request = new Curl\Request($this->host, $data);
 		$request->setSender($this->curlSender);
 		$request->options['sslversion'] = 3;
-		$request->options['verbose'] = true;
+		$request->options['verbose'] = TRUE;
 
 		if (strpos($request->getUrl()->getHost(), '.sandbox.') !== FALSE) {
 			$request->setCertificationVerify(FALSE);
