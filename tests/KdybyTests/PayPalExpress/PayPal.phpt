@@ -43,7 +43,7 @@ class PayPalTest extends Tester\TestCase
 		$config->setTempDirectory(TEMP_DIR);
 		$config->addParameters(array('container' => array('class' => 'SystemContainer_' . md5(TEMP_DIR))));
 		PayPalExtension::register($config);
-		$config->addConfig(__DIR__ . '/paypal.config.neon');
+		$config->addConfig(__DIR__ . '/paypal.config.neon', FALSE);
 
 		$container = $config->createContainer();
 		$this->paypal = $container->getByType('Kdyby\PayPalExpress\PayPal');
