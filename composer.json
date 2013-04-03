@@ -18,7 +18,6 @@
 	"require-dev": {
 		"nette/tester": "@dev"
 	},
-	"minimum-stability": "dev",
 	"support": {
 		"email": "filip@prochazka.su",
 		"issues": "https://github.com/kdyby/paypal-express/issues"
