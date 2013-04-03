@@ -29,9 +29,6 @@
 		},
 		"classmap": [
 			"src/Kdyby/PayPalExpress/exceptions.php"
-		],
-		"files": [
-			"src/Nette/compatibility.php"
 		]
 	}
 }
