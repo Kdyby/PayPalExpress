@@ -13,7 +13,7 @@
 	],
 	"require": {
 		"nette/nette": "@dev",
-		"kdyby/curl": "~1.0"
+		"kdyby/curl": "@dev"
 	},
 	"require-dev": {
 		"nette/tester": "@dev"
