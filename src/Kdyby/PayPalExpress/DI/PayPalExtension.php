@@ -17,10 +17,17 @@ use Nette\Utils\Validators;
 
 
 
+if (!class_exists('Nette\DI\CompilerExtension')) {
+	class_alias('Nette\Config\CompilerExtension', 'Nette\DI\CompilerExtension');
+	class_alias('Nette\Config\Configurator', 'Nette\Configurator');
+	class_alias('Nette\Config\Compiler', 'Nette\DI\Compiler');
+	class_alias('Nette\Config\Helpers', 'Nette\DI\Config\Helpers');
+}
+
 /**
  * @author Filip Procházka <filip@prochazka.su>
  */
-class PayPalExtension extends Nette\Config\CompilerExtension
+class PayPalExtension extends Nette\DI\CompilerExtension
 {
 
 	/**
@@ -67,7 +74,7 @@ class PayPalExtension extends Nette\Config\CompilerExtension
 
 		$init->addBody($container->formatPhp(
 			'Nette\Diagnostics\Debugger::$blueScreen->addPanel(?);',
-			Nette\Config\Compiler::filterArguments(array(
+			Nette\DI\Compiler::filterArguments(array(
 				'Kdyby\PayPalExpress\Diagnostics\Panel::renderException'
 			))
 		));
@@ -76,11 +83,11 @@ class PayPalExtension extends Nette\Config\CompilerExtension
 
 
 	/**
-	 * @param \Nette\Config\Configurator $configurator
+	 * @param \Nette\Configurator $configurator
 	 */
-	public static function register(Nette\Config\Configurator $configurator)
+	public static function register(Nette\Configurator $configurator)
 	{
-		$configurator->onCompile[] = function ($config, Nette\Config\Compiler $compiler) {
+		$configurator->onCompile[] = function ($config, Nette\DI\Compiler $compiler) {
 			$compiler->addExtension('paypalExpress', new PayPalExtension());
 		};
 	}
