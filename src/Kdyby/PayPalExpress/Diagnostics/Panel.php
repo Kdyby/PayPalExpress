@@ -9,6 +9,7 @@
  */
 
 namespace Kdyby\PayPalExpress\Diagnostics;
+
 use Kdyby;
 use Kdyby\PayPalExpress as PayPal;
 use Nette;

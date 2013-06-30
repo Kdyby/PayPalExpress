@@ -72,8 +72,9 @@ class PayPalExtension extends Nette\DI\CompilerExtension
 		$init = $class->methods['initialize'];
 		/** @var Code\Method $init */
 
+		$blueScreen = 'Nette\Diagnostics\Debugger::' . (method_exists('Nette\Diagnostics\Debugger', 'getBlueScreen') ? 'getBlueScreen()' : '$blueScreen');
 		$init->addBody($container->formatPhp(
-			'Nette\Diagnostics\Debugger::$blueScreen->addPanel(?);',
+			$blueScreen . '->addPanel(?);',
 			Nette\DI\Compiler::filterArguments(array(
 				'Kdyby\PayPalExpress\Diagnostics\Panel::renderException'
 			))
