@@ -127,7 +127,7 @@ class Cart extends Nette\Object
 
 		$items = array();
 		foreach ($this->items as $i => $item) {
-			$data[$prefix . 'ITEMAMT'] += $item['AMT'];
+			$data[$prefix . 'ITEMAMT'] += $item['AMT'] *  $item['QTY'];
 
 			foreach ($item as $key => $value) {
 				if (!$value) continue;
