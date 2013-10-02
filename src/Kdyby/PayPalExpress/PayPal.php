@@ -79,6 +79,16 @@ class PayPal extends Nette\Object
 	private $signature;
 
 	/**
+	 * @var bool
+	 */
+	private $needAddress = FALSE;
+	
+	/**
+	 * @var bool
+	 */
+	private $confirmShipping = FALSE;
+	
+	/**
 	 * @var string
 	 */
 	private $currency = 'CZK';
@@ -137,6 +147,28 @@ class PayPal extends Nette\Object
 
 
 	/**
+	 * If paypal response has contain the address of the customer
+	 * @param bool $needAddress
+	 */
+	public function setNeedAddress($needAddress) 
+	{
+		$this->needAddress = (bool) $needAddress;
+	}
+
+
+
+	/**
+	 * Address of customer must be verified
+	 * @param bool $confirmShipping
+	 */
+	public function setConfirmShipping($confirmShipping) 
+	{
+		$this->confirmShipping = (bool) $confirmShipping;
+	}
+
+
+
+	/**
 	 */
 	public function disableSandbox()
 	{
@@ -171,8 +203,8 @@ class PayPal extends Nette\Object
 			'METHOD' => 'SetExpressCheckout',
 			'RETURNURL' => (string)$this->returnUrl,
 			'CANCELURL' => (string)$this->cancelUrl,
-			'REQCONFIRMSHIPPING' => $cart->shipping ? "1" : "0",
-			'NOSHIPPING' => $cart->shipping ? "0" : "1",
+			'REQCONFIRMSHIPPING' => $this->confirmShipping ? "1" : "0",
+			'NOSHIPPING' => $cart->shipping || $this->needAddress ? "0" : "1",
 			'ALLOWNOTE' => "1",
 		) + $cart->serialize($this->account, $this->currency, '0');
 

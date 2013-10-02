@@ -39,6 +39,8 @@ class PayPalExtension extends Nette\DI\CompilerExtension
 	 */
 	public $defaults = array(
 		'sandbox' => TRUE,
+		'needAddress' => FALSE,
+		'confirmShipping' => FALSE,
 		'currency' => 'CZK',
 	);
 
@@ -58,7 +60,9 @@ class PayPalExtension extends Nette\DI\CompilerExtension
 		$client = $builder->addDefinition($this->prefix('client'))
 			->setClass('Kdyby\PayPalExpress\PayPal')
 			->setArguments(array($config))
-			->addSetup('setCurrency', array($config['currency']));
+			->addSetup('setCurrency', array($config['currency']))
+			->addSetup('setConfirmShipping',  array($config['confirmShipping']))
+			->addSetup('setNeedAddress',  array($config['needAddress']));
 
 		if ($config['sandbox'] === FALSE) {
 			$client->addSetup('disableSandbox');
