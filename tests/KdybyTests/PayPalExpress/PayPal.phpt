@@ -16,7 +16,7 @@ use Kdyby\PayPalExpress\Cart;
 use Kdyby\PayPalExpress\DI\PayPalExtension;
 use Kdyby\PayPalExpress\PayPal;
 use Nette;
-use Nette\Config\Configurator;
+use Nette\Configurator;
 use Tester;
 use Tester\Assert;
 
