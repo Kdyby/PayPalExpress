@@ -3,7 +3,7 @@ Kdyby/PayPalExpress
 
 [![Build Status](https://travis-ci.org/Kdyby/PayPalExpress.svg?branch=master)](https://travis-ci.org/Kdyby/PayPalExpress)
 [![Downloads this Month](https://img.shields.io/packagist/dm/Kdyby/PayPalExpress.svg)](https://packagist.org/packages/Kdyby/PayPalExpress)
-[![Latest stable](https://img.shields.io/packagist/v/Kdyby/PayPalExpress.svg)](https://packagist.org/packages/Kdyby/PayPalExpress)
+[![Latest stable](https://img.shields.io/packagist/v/kdyby/paypal-express.svg)](https://packagist.org/packages/kdyby/paypal-express)
 
 
 Requirements
@@ -11,7 +11,7 @@ Requirements
 
 Kdyby/PayPalExpress requires PHP 5.3.2 or higher with curl enabled.
 
-- [Nette Framework 2.0.x](https://github.com/nette/nette)
+- [Nette Framework](https://github.com/nette/nette)
 - [Kdyby/Curl](https://github.com/kdyby/curl)
 
 
@@ -23,6 +23,12 @@ The best way to install Kdyby/PayPalExpress is using  [Composer](http://getcompo
 ```sh
 $ composer require kdyby/paypal-express:@dev
 ```
+
+
+Documentation
+------------
+
+Lear more in the [documentation](https://github.com/Kdyby/PayPalExpress/blob/master/docs/en/index.md).
 
 
 -----
