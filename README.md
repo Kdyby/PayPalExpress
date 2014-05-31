@@ -3,7 +3,7 @@ Kdyby/PayPalExpress
 
 [![Build Status](https://travis-ci.org/Kdyby/PayPalExpress.svg?branch=master)](https://travis-ci.org/Kdyby/PayPalExpress)
 [![Downloads this Month](https://img.shields.io/packagist/dm/Kdyby/PayPalExpress.svg)](https://packagist.org/packages/Kdyby/PayPalExpress)
-[![Latest stable](img.shields.io/packagist/v/Kdyby/PayPalExpress.svg)](https://packagist.org/packages/Kdyby/PayPalExpress)
+[![Latest stable](https://img.shields.io/packagist/v/Kdyby/PayPalExpress.svg)](https://packagist.org/packages/Kdyby/PayPalExpress)
 
 
 Requirements
