@@ -28,7 +28,7 @@ $ composer require kdyby/paypal-express:@dev
 Documentation
 ------------
 
-Lear more in the [documentation](https://github.com/Kdyby/PayPalExpress/blob/master/docs/en/index.md).
+Learn more in the [documentation](https://github.com/Kdyby/PayPalExpress/blob/master/docs/en/index.md).
 
 
 -----
