@@ -6,6 +6,16 @@ Kdyby/PayPalExpress
 [![Latest stable](https://img.shields.io/packagist/v/kdyby/paypal-express.svg)](https://packagist.org/packages/kdyby/paypal-express)
 
 
+Save me please!
+---------------
+
+The maintainer of this project has no more time to maintain it. It may even contain unfixed bugs :(
+
+If you need something like this and you're willing to join in, you're welcome to take over this project.
+
+![help](https://cdn.kdyby.org/keyboard-help.png)
+
+
 Requirements
 ------------
 
