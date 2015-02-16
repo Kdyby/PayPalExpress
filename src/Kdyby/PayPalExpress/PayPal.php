@@ -262,7 +262,14 @@ class PayPal extends Nette\Object
 
 		throw new PaymentFailedException($return, $data);
 	}
-
+	
+	/**
+	 * 
+	 * @return string $gate
+	 */
+	public function getGate() {
+		return $this->gate;
+	}
 
 
 	/**
