@@ -251,7 +251,7 @@ class PayPal extends Nette\Object
 
 		$request = new Curl\Request($this->host, $data);
 		$request->setSender($this->curlSender);
-		$request->options['sslversion'] = 3;
+		$request->options['sslversion'] = 1; // 1 means CURL_SSLVERSION_TLSv1, but in some PHP versions this constant is not defined (https://bugs.php.net/bug.php?id=62318)
 		$request->options['verbose'] = TRUE;
 
 		if (strpos($request->getUrl()->getHost(), '.sandbox.') !== FALSE) {
